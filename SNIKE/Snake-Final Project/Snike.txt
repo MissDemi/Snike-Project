@@ -1,0 +1,56 @@
+Name of the project: Snike
+
+
+
+Description:
+Snike is a modern take on the classic Snake game, designed to be simple yet engaging. The game features a modern style combined with animation and responsive controls, providing an enjoyable gaming experience for users of all ages. The player controls a snake that grows in length by eating apples, with the objective of achieving the highest score possible without colliding with the walls or the snake's own body.
+
+
+
+Features:
+-Responsive Controls: Smooth and responsive arrow key controls to guide the snake's movement.
+
+-Dynamic Gameplay: 
+~The snake grows longer each time it eats an apple, increasing the difficulty;
+~Special apples that increase the snake's speed;
+~A special green apple that appears when the score reaches 100.
+
+-Scoreboard: A real-time scoreboard that updates as the player accumulates points by eating apples.
+
+-Random Apple Generation: Apples appear at random locations on the game board, making each game unique.
+
+-Collision Detection: Game over when the snake collides with the walls or its own body.
+
+-Game Restart: Easy game restart functionality after a game-over prompt.
+
+
+
+Target Audience:
+-Casual Gamers; Individuals looking for a quick and fun gaming experience.
+
+-Players who enjoyed the original Snake game and want to relive the experience with a modern twist.
+
+-Young Players: Kids and teens looking for simple yet challenging games.
+
+-Coding Enthusiasts: Developers and learners interested in simple game development using HTML, CSS, and JavaScript.
+
+
+
+Project Approach:
+-Started by defining the core gameplay mechanics and identifying the essential features needed to create a basic but enjoyable Snake game.
+
+-Design: Created a minimalist and visually appealing design for the game board and snake using CSS grid and simple colors.
+
+-Development: Implemented the game logic using JavaScript, focusing on snake movement, apple generation, collision detection, increasing snake speed and score tracking.
+
+-Testing: Tested the game to ensure all functionalities worked as expected and made adjustments based on feedback.
+
+-Optimization: Enhanced performance and made the snake's movement smoother, ensuring a seamless gaming experience.
+
+-Finalization: Polished the UI elements, added the scoreboard, and ensured the game was fully functional across different browsers.
+
+
+
+Reason for the Idea:
+The idea for Snike came from wanting to create a simple yet fun game that brings back memories of the classic Snake game. The original Snake game is loved by many for its easy-to-understand gameplay and its ability to keep players engaged. By making this game, we aimed to provide a fun project that anyone can enjoy and that developers can learn from. It’s a great way to practice basic web development skills, handling events, and implementing game logic.
+

@@ -1,0 +1,296 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+#tutorialContainer {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in-out;
+  /* // animatie de fade in pentru containerul tutorialului */
+}
+.step {
+  display: none;
+  /* ascundem toti pasii in mod implicit */
+}
+.step.active {
+  display: block;
+  animation: slideIn 1s ease-in-out;
+  /* animatie de slide in pentru pasii activi */
+  /* cu JS vom activa si dezactiva clasa active pentru a afisa pasii in ordinea corecta, iar animatia va face tranzitia mai fluida si mai atractiva vizual. */
+}
+
+/* animatii */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+@keyframes slideIn {
+  from {
+      transform: translateY(-20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+/* Nav Buttons */
+.nav-buttons {
+  margin-top: 20px;
+}
+.nav-buttons button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.nav-buttons button:hover {
+  background-color: #3e8e41;
+}
+
+.nav-buttons button:active {
+  animation: pulse 0.5s infinite;
+}/* animatie de pulsare pentru butoanele de navigare cand sunt apasate */
+
+@keyframes pulse {
+	0%,
+	100% {
+		transform: rotate(0deg);
+		transform-origin: 50% 0;
+	}
+
+	10% {
+		transform: rotate(2deg);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: rotate(-4deg);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: rotate(4deg);
+	}
+
+	80% {
+		transform: rotate(-2deg);
+	}
+
+	90% {
+		transform: rotate(2deg);
+	}
+}
+/* mic efect de shake */
+
+.apple, .speedApple, .luckyApple, .snake {
+  display: inline-block; 
+  /* blocuri inline pentru a putea fi aliniate pe aceeasi linie */
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.snake { background-color: white; }
+
+/* Game Components */
+.game-components {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.component {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.component i {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.component h3 {
+  margin-top: 0;
+}
+
+.component p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* apples types */
+.apple-types {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.apple-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+/* // grid pentru a alinia cele 3 tipuri de mere in mod egal pe pagina */
+
+.apple-type {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* // stil pentru fiecare imagine/card care prezinta un tip de mar, cu o umbra faina pentru a-l face sa iasa in evidenta pe fundalul intunecat */
+
+.apple-icon {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+.apple-color {
+  font-size: 16px;
+  color: #666;
+}
+
+.apple {
+  content: url('gameMenu/assets/apple.png');
+}
+
+.speedApple {
+  content: url('gameMenu/assets/speedApple.png');
+}
+
+.luckyApple {
+  content: url('gameMenu/assets/luckyApple.png');
+}
+/*imagini direct in css */
+
+/* How To Play */
+.keyboard-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arrow-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.arrow-up,.arrow-down,.arrow-left,.arrow-right {
+  position: relative;
+  /*background-color: #4CAF50;*/
+  background-color: rgba(0, 0, 0, 0);
+  background-size: cover;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+}
+
+.arrow-up {
+  background-image: url('gameMenu/assets/arrowKeys/up.png');
+}
+
+.arrow-left {
+  background-image: url('gameMenu/assets/arrowKeys/left.png');
+}
+
+.arrow-down {
+  background-image: url('gameMenu/assets/arrowKeys/down.png');
+}
+
+.arrow-right {
+  background-image: url('gameMenu/assets/arrowKeys/right.png');
+}
+
+/* Objectives */
+.objectives {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.quest-card {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.quest-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quest-header img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.quest-header h3 {
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Li Format */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+}
+
+li::before {
+  content: "";
+  display: inline-block;
+  width: 7.5px;
+  height: 7.5px;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 10px;
+}

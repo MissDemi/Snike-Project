@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- face pagina responsive (pentru telefon) -->
+    <title>Snake Game Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="tutorialContainer"> <!-- container pentru tot tutorialul -->
+        <div class="step active" id="step1">
+            <h2>Welcome to the Snike!</h2>
+            <p>Follow this tutorial to learn how to play and master the game.</p>
+        </div>
+        <div class="step" id="step2">
+          <section class="game-components">
+            <h2>Game Components</h2>
+            <p>Get familiar with the different parts of the game.</p>
+            <div class="component-grid">
+              <div class="component">
+                <i class="fas fa-grid"></i>
+                <h3>Game Board</h3>
+                <p>The area where the snake moves and eats apples.</p>
+              </div>
+              <div class="component">
+                <i class="fas fa-trophy"></i>
+                <h3>Score Board</h3>
+                <p>Displays the current score.</p>
+              </div>
+              <div class="component">
+                <i class="fas fa-speedometer"></i>
+                <h3>Speed Indicator</h3>
+                <p>Shows the current speed level of the snake.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="step" id="step3">
+          <section class="apple-types">
+            <h2>Apple Types</h2>
+            <p>Discover the different types of apples in the game.</p>
+            <div class="apple-grid">
+              <div class="apple-type">
+                <div class="apple-icon apple"></div>
+                <h3>Normal Apple</h3>
+                <p>Increases the snake's size and score.</p>
+                <span class="apple-color">Red</span>
+              </div>
+              <div class="apple-type">
+                <div class="apple-icon speedApple"></div>
+                <h3>Speed Apple</h3>
+                <p>Increases the snake's speed.</p>
+                <span class="apple-color">Yellow</span>
+              </div>
+              <div class="apple-type">
+                <div class="apple-icon luckyApple"></div>
+                <h3>Lucky Apple</h3>
+                <p>Has special effects; discover them by playing!</p>
+                <span class="apple-color">Green</span>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="step" id="step4">
+          <h2>How to Play</h2>
+          <p>Use the arrow keys on your keyboard to control the direction of the snake</p>
+          <div class="keyboard-layout">
+            <div class="arrow-row">
+              <button class="arrow-up">
+                <span></span>
+              </button>
+            </div>
+            <div class="arrow-row">
+              <button class="arrow-left">
+                <span></span>
+              </button>
+              <button class="arrow-down">
+                <span></span>
+              </button>
+              <button class="arrow-right">
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="step" id="step5">
+          <section class="objectives">
+            <h2>Objectives</h2>
+            <div class="quest-card">
+              <div class="quest-header">
+                <img src="gameMenu/assets/apple.png" alt="Apple Icon" style="width: 24px; height: 24px;">
+                <h3>Quest for Apples</h3>
+              </div>
+              <ul>
+                <li>Eat Apples to Grow Longer: Devour juicy apples to increase your score and grow your snake's length.</li>
+              </ul>
+            </div>
+            <div class="quest-card">
+              <div class="quest-header">
+                <img src="gameMenu/assets/danger.png" alt="Danger Icon">
+                <h3>Avoid Deadly Obstacles</h3>
+              </div>
+              <ul>
+                <li>Steer clear of yourself and the game board boundaries to keep playing and stay alive.</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+        <div class="nav-buttons">
+            <button id="prevButton" onclick="navigate(-1)">Previous</button>
+            <button id="nextButton" onclick="navigate(1)">Next</button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 0;
+        // tine minte la ce pas suntem in tutorial
+        const steps = document.querySelectorAll('.step');
+        // toate ecranele tutorialului
+        prevBtn=document.getElementById("prevButton");
+        nextBtn=document.getElementById("nextButton");
+        //butoanele de navigare next si previous
+
+        //directia va fi 1 sau -1, in functie de butonul apasat
+        function navigate(direction) {
+          // Add delay for animation
+          setTimeout(() => {
+              steps[currentStep].classList.remove('active');
+              //ascundem pasul curent
+
+              currentStep += direction;
+             //actualizam pasul curent
+
+              if (currentStep < 0) currentStep = 0;
+              // prevenim depasirea pasului 0
+
+              if (currentStep >= steps.length) {
+                  // daca am depasit ultimul pas, redirectionam catre joc
+                  window.location.href = 'gameMenu/snake.html';
+                  return; 
+                  //return pentru a opri executia scriptului dupa redirectionare
+                  
+              }
+
+              steps[currentStep].classList.add('active');// afisam noul pas
+              whatStep();
+          }, 195);
+      }
+
+        function whatStep() {
+          if (currentStep == 0) {
+            prevBtn.style.opacity = 0;
+            prevBtn.style.pointerEvents = "none";// dezactivam butonul previous la primul pas
+          } else {
+            prevBtn.style.opacity = 1;
+            prevBtn.style.pointerEvents = "auto";// activam butonul previous la pasii urmatori
+          }
+          console.log(`${currentStep} / ${steps.length - 1}`);// afisam in consola pasul curent pentru debug
+          if(currentStep == steps.length - 1) {
+            nextBtn.innerHTML = "Jump In!";// schimbam textul butonului next la ultimul pas
+          }
+          else {
+            nextBtn.innerHTML = "Next";
+          }
+        }
+      whatStep();
+
+        
+    </script>
+</body>
+</html>

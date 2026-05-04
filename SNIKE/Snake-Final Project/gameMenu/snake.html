@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="snake.css">
+</head>
+<body>
+    <div id="mainContainer">
+        <div id="gameBoard"></div>
+        <div id="infoBoard">
+
+            <div class="header">
+                <div class="scoreboard" id="scoreBoard">Score: 0</div>
+                <div class="speedIndicator" id="speedIndicator">Speed Level: 1</div>
+            </div>
+
+            <div class="infoItem">
+                <div class="apple"></div>
+                <p>Apple - Normal Apple - Increase Your Size And Your Score</p>
+            </div>
+
+            <div class="infoItem">
+                <div class="speedApple"></div>
+                <p>Yellow Apple - The Speed Apple - Increase Your Speed</p>
+            </div>
+
+            <div class="infoItem">
+                <div class="luckyApple"></div>
+                <p>Green Apple - The Lucky Apple - Why don't you find out by yourself</p>
+            </div>
+
+            <div class="infoItem">
+                <div class="snake"></div>
+                <p>The Snake - Just The Snake</p>
+            </div>
+
+            <div class="infoItem">
+                <div class="keysInfo">
+                    <p>Use 
+                        <div class="keyboard-layout">
+                            <div class="arrow-row">
+                                <button class="arrow-up">
+                                    <span></span>
+                                </button>
+                            </div>
+                            <div class="arrow-row">
+                                <button class="arrow-left">
+                                    <span></span>
+                                </button>
+                                <button class="arrow-down">
+                                    <span></span>
+                                </button>
+                                <button class="arrow-right">
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div> 
+                        to move the snake!
+                    </p>
+                </div>                
+            </div>
+    </div>
+    <script src="snake.js"></script>
+</body>
+</html>

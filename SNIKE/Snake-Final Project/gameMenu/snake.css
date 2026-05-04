@@ -1,0 +1,178 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000000;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+#mainContainer {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    border: 1px solid #4b4b4b;
+}
+
+#gameBoard {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: #364857;
+    border: 2px solid #4b4b4b;
+    display: grid;
+    grid-template-rows: repeat(15, 1fr);
+    grid-template-columns: repeat(15, 1fr);
+    margin-right: 20px; /* Space between game board and info board */
+}
+
+#infoBoard {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Gap between items */
+    max-width: 350px; /* Width to prevent compression */
+    align-items: flex-start; /* Align items to the start */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Ensure header takes full width */
+    margin-bottom: 15px;
+}
+
+.scoreboard {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: auto; /* Auto width to fit content */
+    text-align: center; /* Center text inside scoreboard */
+}
+
+.speedIndicator {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: auto; /* Auto width to fit content */
+    text-align: center; /* Center text inside indicator */
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%; /* Ensure info items take full width */
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+/*Animation*/
+
+.infoItem .apple, 
+.infoItem .speedApple, 
+.infoItem .luckyApple, 
+.infoItem .snake {
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+/* efect de wiggle pentru a face elementele sa se miste usor  */
+
+.infoItem:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.apple {
+    content: url('assets/apple.png');
+    width: 20px;
+    height: 20px;
+}
+
+.speedApple {
+    content: url('assets/speedApple.png');
+    width: 20px;
+    height: 20px;
+}
+
+.luckyApple {
+    content: url('assets/luckyApple.png');
+    width: 20px;
+    height: 20px;
+}
+
+.snake {
+    background-color: #0f0;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+}
+/*am creat elementele pentru a reprezenta merele si sarpele in info board, folosind imagini pentru mere si un simplu div verde pentru sarpe, toate avand aceeasi dimensiune pentru a fi usor de recunoscut si de aliniat in info board. */
+
+.infoItem p {
+    margin: 0;
+    flex: 1; /* Ensure the paragraph takes up available space */
+}
+
+/* taste */
+.keysInfo {
+    display: flex;
+    align-items: flex-end; /* Align the text to the bottom */
+}
+
+.keysInfo p {
+    display: flex;
+    align-items: flex-end; /* Align the text to the bottom */
+    margin: 0;
+}
+
+.keyboard-layout {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px; /* Adjust margin for spacing */
+}
+
+.arrow-row {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.arrow-up, .arrow-down, .arrow-left, .arrow-right {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    background-size: cover;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+}
+
+.arrow-up {
+    background-image: url('assets/arrowKeys/up.png');
+}
+
+.arrow-left {
+    background-image: url('assets/arrowKeys/left.png');
+}
+
+.arrow-down {
+    background-image: url('assets/arrowKeys/down.png');
+}
+
+.arrow-right {
+    background-image: url('assets/arrowKeys/right.png');
+}
